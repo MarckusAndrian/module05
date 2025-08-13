@@ -6,9 +6,12 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 13:57:35 by kandrian          #+#    #+#             */
-/*   Updated: 2025/08/12 00:12:05 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/08/13 15:44:58 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
@@ -40,4 +43,4 @@ public:
 };
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & b);
 
-
+#endif

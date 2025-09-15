@@ -6,7 +6,7 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 13:57:35 by kandrian          #+#    #+#             */
-/*   Updated: 2025/08/13 15:44:58 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:53:42 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -40,6 +41,7 @@ public:
     int getGrade() const;
     void incrementGrade();
     void decrementGrade();
+    void signForm(Form &f);
 };
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & b);
 

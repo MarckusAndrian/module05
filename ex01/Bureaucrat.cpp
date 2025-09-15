@@ -6,7 +6,7 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 15:01:23 by kandrian          #+#    #+#             */
-/*   Updated: 2025/08/13 14:50:10 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:53:14 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,19 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 std::string Bureaucrat::getName() const 
 {
     return this->_name;
+}
+
+void Bureaucrat::signForm(Form &f)
+{
+    try{
+        f.beSigned(*this);
+        std::cout << this->getName() << " signed " << f.getGradeExec() << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << this->getName() << " couldn’t sign " << f.getName();
+        std::cout << " because " << "the grade is not high enough" << std::endl;
+    }
 }
 
 std::ostream &operator<<(std::ostream & o, Bureaucrat const &b)

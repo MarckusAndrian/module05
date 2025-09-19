@@ -6,12 +6,14 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 13:57:35 by kandrian          #+#    #+#             */
-/*   Updated: 2025/09/15 15:53:42 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/09/19 15:16:21 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+
+typedef class Bureaucrat Bureaucrat;
 
 #include <iostream>
 #include <string>
@@ -43,6 +45,7 @@ public:
     void decrementGrade();
     void signForm(Form &f);
 };
+
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & b);
 
 #endif

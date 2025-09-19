@@ -6,7 +6,7 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 15:01:23 by kandrian          #+#    #+#             */
-/*   Updated: 2025/09/15 15:53:14 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/09/19 15:30:03 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Bureaucrat::signForm(Form &f)
 {
     try{
         f.beSigned(*this);
-        std::cout << this->getName() << " signed " << f.getGradeExec() << std::endl;
+        std::cout << this->getName() << " signed " << f.getName() << std::endl;
     }
     catch(std::exception &e)
     {

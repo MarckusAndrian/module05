@@ -6,7 +6,7 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:57:56 by kandrian          #+#    #+#             */
-/*   Updated: 2025/09/15 15:33:43 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/09/19 15:35:46 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Form::Form(void): _signed(0), _name("default_form"), _gradeSign(50), _gradeExec(
 {
     std::cout << "Default constructor of form called" << std::endl;
 }
-Form::Form(Form const& other): _gradeSign(50), _gradeExec(1), _name("default_name"), _signed(0)
+Form::Form(Form const& other): _signed(0), _name("default_form"), _gradeSign(50), _gradeExec(1)
 {
     *this = other;
     std::cout << "Default copy constructor called" << std::endl;

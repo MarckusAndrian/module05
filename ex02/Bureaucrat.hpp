@@ -6,15 +6,18 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 13:57:35 by kandrian          #+#    #+#             */
-/*   Updated: 2025/09/19 14:24:28 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/09/19 16:22:10 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+typedef class Bureaucrat Bureaucrat;
+
 #include <iostream>
 #include <string>
+#include "AForm.hpp"
 
 class Bureaucrat
 {
@@ -40,7 +43,9 @@ public:
     int getGrade() const;
     void incrementGrade();
     void decrementGrade();
+    void signForm(AForm &f);
 };
+
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & b);
 
 #endif

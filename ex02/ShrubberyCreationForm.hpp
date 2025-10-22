@@ -16,11 +16,11 @@
 #include "AForm.hpp"
 #include <fstream>
 
-class ShrubberyCreationForm: public AForm
+class ShrubberyCreationForm : public AForm
 {
 private:
     std::string _target;
-    
+
 public:
     ShrubberyCreationForm();
     ShrubberyCreationForm(std::string target);
@@ -28,8 +28,7 @@ public:
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
     ~ShrubberyCreationForm();
 
-    void drawAsciiTree() const;
+    void execute(Bureaucrat const &executor) const;
 };
 
 #endif
-

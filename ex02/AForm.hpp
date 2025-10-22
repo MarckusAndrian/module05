@@ -31,12 +31,17 @@ public:
     AForm &operator=(AForm const &rhs);
     ~AForm();
 
-    class GradeTooHighException: public std::exception
+    class GradeTooHighException : public std::exception
     {
         const char *what() const throw();
     };
-    
-    class GradeTooLowException: public std::exception
+
+    class GradeTooLowException : public std::exception
+    {
+        const char *what() const throw();
+    };
+
+    class FormNotSignException : public std::exception
     {
         const char *what() const throw();
     };
@@ -46,9 +51,10 @@ public:
     int getGradeSign(void) const;
     int getGradeExec(void) const;
     void beSigned(Bureaucrat const &b);
-    
 
-};  
+    void checkException(Bureaucrat const &executor) const;
+    virtual void execute(Bureaucrat const &executor) const = 0;
+};
 std::ostream &operator<<(std::ostream &o, AForm const &f);
 
 #endif

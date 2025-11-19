@@ -37,6 +37,8 @@ AForm &AForm::operator=(AForm const &rhs)
     if (this != &rhs)
     {
         _signed = rhs._signed;
+        _gradeExec = rhs._gradeExec;
+        _gradeSign = rhs._gradeSign;
     }
     return *this;
 }

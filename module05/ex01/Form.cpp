@@ -6,7 +6,7 @@
 /*   By: kandrian <kandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:57:56 by kandrian          #+#    #+#             */
-/*   Updated: 2025/09/19 15:35:46 by kandrian         ###   ########.fr       */
+/*   Updated: 2025/10/29 07:31:29 by kandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ Form &Form::operator=(Form const &rhs)
     if (this != &rhs)
     {
         _signed = rhs._signed;
+        _gradeExec = rhs._gradeExec;
+        _gradeSign = rhs._gradeSign;
     }
     return *this;
 }

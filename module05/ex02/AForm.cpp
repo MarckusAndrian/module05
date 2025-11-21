@@ -17,7 +17,7 @@ AForm::AForm(void) : _signed(0), _name("default_Aform"), _gradeSign(50), _gradeE
     std::cout << "Default constructor of Aform called" << std::endl;
 }
 
-AForm::AForm(std::string name, int const sign, int const exec) : _signed(0), _name("default_Aform"), _gradeSign(sign), _gradeExec(exec)
+AForm::AForm(std::string name, int const sign, int const exec) : _name(name), _gradeSign(sign), _gradeExec(exec)
 {
     std::cout << "AForm's constructor called" << std::endl;
     if (sign < 1 || exec < 1)
@@ -37,8 +37,6 @@ AForm &AForm::operator=(AForm const &rhs)
     if (this != &rhs)
     {
         _signed = rhs._signed;
-        _gradeExec = rhs._gradeExec;
-        _gradeSign = rhs._gradeSign;
     }
     return *this;
 }

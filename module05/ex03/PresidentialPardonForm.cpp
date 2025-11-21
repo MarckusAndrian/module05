@@ -1,16 +1,16 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm(72, 45), _target("Roboto")
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("Default_form", 72, 45), _target("Roboto")
 {
     std::cout << "RobotomyRequest default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(72, 45), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Default_form", 72, 45), _target(target)
 {
     std::cout << "RobotomyRequest constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other) : AForm(72, 45), _target("Roboto")
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other) : AForm("Default_form", 72, 45), _target("Roboto")
 {
     *this = other;
     std::cout << "RobotomyRequest copy constructor called" << std::endl;

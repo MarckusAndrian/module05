@@ -26,7 +26,7 @@ private:
 
 public:
     AForm();
-    AForm(int const _gradeSign, int const _gradeExce);
+    AForm(std::string name, int const _gradeSign, int const _gradeExce);
     AForm(AForm const &other);
     AForm &operator=(AForm const &rhs);
     ~AForm();

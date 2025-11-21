@@ -1,16 +1,16 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm(72, 45), _target("Roboto")
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("Default_form", 72, 45), _target("Roboto")
 {
     std::cout << "RobotomyRequest default constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Default_form", 72, 45), _target(target)
 {
     std::cout << "RobotomyRequest constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other) : AForm(72, 45), _target("Roboto")
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other) : AForm("Default_form", 72, 45), _target("Roboto")
 {
     *this = other;
     std::cout << "RobotomyRequest copy constructor called" << std::endl;

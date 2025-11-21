@@ -12,17 +12,17 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm(145, 137), _target("tree")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default_form", 145, 137), _target("tree")
 {
     std::cout << "Default constructor of shrubbery called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Default_form", 145, 137), _target(target)
 {
     std::cout << "Constructor of shrubbery called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other) : AForm(145, 137), _target("tree")
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other) : AForm("Default_form", 145, 137), _target("tree")
 {
     *this = other;
     std::cout << "Copy constructor of shrubbery is called" << std::endl;

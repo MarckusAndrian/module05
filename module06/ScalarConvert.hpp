@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <climits>
 
 class ScalarConvert
 {
@@ -8,7 +9,7 @@ private:
 public:
     ScalarConvert();
     ScalarConvert(ScalarConvert const &other);
-    ScalarConvert&operator=(ScalarConvert const &rhs);
+    ScalarConvert &operator=(ScalarConvert const &rhs);
     ~ScalarConvert();
 
     static void convert(std::string const &s);

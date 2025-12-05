@@ -1,7 +1,7 @@
 #include "ScalarConvert.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-    ScalarConvert::convert("122g");
+    ScalarConvert::convert(av[1]);
     return 0;
 }

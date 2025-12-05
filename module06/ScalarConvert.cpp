@@ -39,11 +39,11 @@ long parseInt(std::string const &s)
     return res;
 }
 
-float parseFloat(std::string const &s)
+float parseDouble(std::string const &s)
 {
     double d = std::strtod(s.c_str(), NULL);
 
-    return static_cast<float>(d);
+    return (d);
 }
 
 // --- print
@@ -103,26 +103,93 @@ static bool isPseudoLiteral(std::string const &s)
     return false;
 }
 
+static bool parseInt(std::string const &s, long &res)
+{
+    if (isNotDigit(s))
+        return false;
+    res = std::strtol(s.c_str(), NULL, 10);
+    if (res > INT_MAX || res < INT_MIN)
+        return false;
+    return true;
+}
+static bool isFloat(std::string const &s)
+{
+    return true;
+}
+
 static void printFloat(std::string const &s)
 {
-    float f = parseFloat(s);
-    std::cout << "float: ";
+    float f = static_cast<float>(parseDouble(s));
     if (isPseudoLiteral(s))
         return;
+    std::cout << "float: ";
     if (isNotDigit(s))
+    {
+        std::cout << "impossible" << std::endl;
         return;
+    }
     if (f - static_cast<int>(f) == 0)
         std::cout << f << ".0f" << std::endl;
     else
         std::cout << f << "f" << std::endl;
 }
 
+static void printDouble(std::string const &s)
+{
+    double d = parseDouble(s);
+    if (isPseudoLiteral(s))
+        return;
+    std::cout << "double: ";
+    if (isNotDigit(s))
+    {
+        std::cout << "impossible" << std::endl;
+        return;
+    }
+    if (d - static_cast<int>(d) == 0)
+        std::cout << d << ".0" << std::endl;
+    else
+        std::cout << d << std::endl;
+}
+
+static void printPseudoLiteral(std::string const &s)
+{
+    if (s == "nan" || "nanf")
+    {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << "nanf" << std::endl;
+        std::cout << "double: " << "nan" << std::endl;
+    }
+    else if (s[0] == '+')
+    {
+
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << "+inff" << std::endl;
+        std::cout << "double: " << "+inf" << std::endl;
+    }
+    else
+    {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << "-inff" << std::endl;
+        std::cout << "double: " << "-inf" << std::endl;
+    }
+}
+
 void ScalarConvert::convert(std::string const &s)
 {
-    // chat int float double
-
+    if (s.empty())
+    {
+        std::cout << "Conversion impossible" << std::endl;
+    }
+    if (isPseudoLiteral(s))
+    {
+        printPseudoLiteral(s);
+        return;
+    }
     printChar(s);
     printInt(s);
     printFloat(s);
-    // printDouble(s);
+    printDouble(s);
 }

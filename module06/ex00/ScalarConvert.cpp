@@ -41,7 +41,7 @@ long parseInt(std::string const &s)
 
 float parseDouble(std::string const &s)
 {
-    double d = std::strtod(s.c_str(), NULL);
+    double d = strtod(s.c_str(), NULL);
 
     return (d);
 }
@@ -66,21 +66,21 @@ static void printChar(std::string const &s)
         std::cout << "impossible" << std::endl;
         return;
     }
-    double d = std::strtod(s.c_str(), NULL);
+    double d = strtod(s.c_str(), NULL);
     if (d < 0 || d > 255)
     {
         std::cout << "impossible" << std::endl;
         return;
     }
     char c = static_cast<char>(d);
-    if (c < 32 && c >= 0 || c == 127)
+    if ((c < 32 && c >= 0) || c == 127)
     {
         std::cout << "non displayble" << std::endl;
         return;
     }
     else
     {
-        std::cout << c << std::endl;
+        std::cout << "'" << c  << "'" << std::endl;
     }
 }
 
@@ -90,9 +90,7 @@ static void printInt(std::string const &s)
     if (isNotDigit(s) || (INT_MAX < parseInt(s) || INT_MIN > parseInt(s)))
         std::cout << "impossible" << std::endl;
     else
-    {
         std::cout << parseInt(s) << std::endl;
-    }
 }
 
 static bool isPseudoLiteral(std::string const &s)
@@ -107,7 +105,7 @@ static bool parseInt(std::string const &s, long &res)
 {
     if (isNotDigit(s))
         return false;
-    res = std::strtol(s.c_str(), NULL, 10);
+    res = strtol(s.c_str(), NULL, 10);
     if (res > INT_MAX || res < INT_MIN)
         return false;
     return true;

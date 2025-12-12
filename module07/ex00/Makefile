@@ -20,6 +20,8 @@ clean:
 	rm -rf $(obj_dir)
 
 fclean: clean
-	rm $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -10,7 +10,7 @@ all: $(NAME)
 
 $(obj_dir)%.o: %.cpp
 	mkdir -p $(obj_dir)
-	$(cpp) $(flags) $< -o $@
+	$(cpp) $(flags) -c $< -o $@
 
 $(NAME): $(obj)
 	$(cpp) $(flags) $^ -o $@
@@ -19,6 +19,6 @@ clean:
 	rm -rf $(obj_dir)
 
 fclean: clean
-	rm  $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all

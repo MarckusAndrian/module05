@@ -101,20 +101,6 @@ static bool isPseudoLiteral(std::string const &s)
     return false;
 }
 
-static bool parseInt(std::string const &s, long &res)
-{
-    if (isNotDigit(s))
-        return false;
-    res = strtol(s.c_str(), NULL, 10);
-    if (res > INT_MAX || res < INT_MIN)
-        return false;
-    return true;
-}
-static bool isFloat(std::string const &s)
-{
-    return true;
-}
-
 static void printFloat(std::string const &s)
 {
     float f = static_cast<float>(parseDouble(s));

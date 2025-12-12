@@ -5,6 +5,7 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+#include <typeinfo>
 
 class Base
 {

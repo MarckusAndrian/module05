@@ -6,7 +6,7 @@ RM = rm -rf
 
 src = main.cpp
 obj_dir = obj/
-obj = $(addprefix $(obj_dir), $(src:.cpp=o))
+obj = $(addprefix $(obj_dir), $(src:.cpp=.o))
 
 all: $(NAME)
 

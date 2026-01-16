@@ -1,8 +1,8 @@
 #include "iter.hpp"
 
-void func(int& t)
+void func(int const &t)
 {
-    t = 42;
+    std::cout << t << std::endl; 
 }
 
 int main()

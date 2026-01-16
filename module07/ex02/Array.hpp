@@ -12,31 +12,59 @@ private:
     unsigned int _n;
     /* data */
 public:
-    Array<T>(/* args */){
-        _element = NULL;
-    };
-    Array<T>(unsigned int n): 
+    Array(/* args */): _element(NULL), _n(0){};
+    Array(unsigned int n)
     {
         _n = n;
         _element = new T[n];
     };
-    Array<T>(Array const &other){
-        *this = other;
+    Array(Array const &other): _element(NULL), _n(other._n)
+    {
+        _n = other._n;
+        _element = new T[_n];
+        for (unsigned int i = 0; i < _n; i++)
+            _element[i] = other._element[i];
     }
     Array &operator=(Array const &rhs)
     {
-        if (this->_element)
-            delete _element;
-        _element = new T[_n];
-        for
+        if (this != &rhs)
+        {
+            _n = rhs.n;
+            if (this->_element)
+                delete[] _element;
+            _element = (_n > 0)? new T[_n]: NULL;
+            for(unsigned int i = 0; i < _n; i++)
+            {
+                _element[i] = rhs._element[i];
+            }
+        }
+        return *this;
+    }
+    
+    int &operator[](int j)
+    {
+        unsigned int i = static_cast<unsigned int>(j);
+        if (i >= _n)
+        {        
+            throw std::exception();
+        }
+        return _element[i];
+    }
+    int const &operator[](int j) const
+    {
+        unsigned int i = static_cast<unsigned int>(j);
+        if (i >= _n)
+        {
+            
+            throw std::exception();
+        }
+        return _element[i];
+    }
+
+    ~Array(){
+        delete[] _element;
     }
 
 };
 
-template <typename T>
-std::ostream &operator<<(std::ostream &o, Array<T> const &a)
-{
-    return o;
-}
-
-#endif;
+#endif

@@ -3,9 +3,9 @@
 
 #include <iostream>
 
-template <typename T>
+template <typename T, typename U>
 
-void iter(T* tab, int const n,  void func(T&)){
+void iter(T* tab, int const n,  U func){
     for(int i = 0; i < n; i++)
     {
         func(tab[i]);

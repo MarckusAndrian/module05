@@ -3,14 +3,14 @@
 
 int main()
 {
-    Array<int> *a = new  Array<int>();
-
     try{
-        std::cout << *a << std::endl;
-
+        Array<int> a(-3);
+        a[1] = 5;
+        std::cout << a[2] << std::endl;
     }
     catch(std::exception const &e)
     {
+        (void) e;
         std::cerr << "Out of bounds!" << std::endl;
     }
     return 0;

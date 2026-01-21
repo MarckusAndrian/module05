@@ -4,7 +4,7 @@ CPP = g++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm -rf
 
-src = main.cpp
+src = main.cpp BitcoinExchange.cpp
 obj_dir = obj/
 obj = $(addprefix $(obj_dir), $(src:.cpp=.o))
 

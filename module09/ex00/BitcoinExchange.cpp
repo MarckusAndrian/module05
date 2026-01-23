@@ -7,8 +7,12 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const &other){
 }
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs){
-    (void)rhs;
-    // if (this != &rhs)
+    if (this != &rhs)
+    {
+        _input = rhs._input;
+        _inputFileName = rhs._inputFileName;
+        _data = rhs._data;
+    }
     return *this;
 }
 
@@ -17,8 +21,8 @@ BitcoinExchange::~BitcoinExchange(){}
 std::string BitcoinExchange::trim(std::string const &str) {
     if (str.empty()) return str;
 
-    size_t start = str.find_first_not_of(" \t\n\r\f\v");
-    size_t end = str.find_last_not_of(" \t\n\r\f\v");
+    size_t start = str.find_first_not_of(" \t");
+    size_t end = str.find_last_not_of(" \t");
 
     if (start == std::string::npos)
         return "";

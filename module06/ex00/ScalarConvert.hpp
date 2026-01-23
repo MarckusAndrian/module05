@@ -6,12 +6,12 @@
 class ScalarConvert
 {
 private:
-    /* data */
-public:
     ScalarConvert();
     ScalarConvert(ScalarConvert const &other);
     ScalarConvert &operator=(ScalarConvert const &rhs);
     ~ScalarConvert();
+    /* data */
+public:
 
     static void convert(std::string const &s);
 };

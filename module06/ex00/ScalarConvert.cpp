@@ -15,7 +15,6 @@ ScalarConvert &ScalarConvert::operator=(ScalarConvert const &rhs)
 
 ScalarConvert::~ScalarConvert() {};
 
-// --- parsing
 static bool isNotDigit(std::string const &s)
 {
     int i = 0;
@@ -41,12 +40,11 @@ long parseInt(std::string const &s)
 
 float parseDouble(std::string const &s)
 {
-    double d = strtod(s.c_str(), NULL);
+    double d = std::strtod(s.c_str(), NULL);
 
     return (d);
 }
 
-// --- print
 static bool isNotChar(std::string const &s)
 {
     if (s.length() >= 2)
@@ -66,7 +64,7 @@ static void printChar(std::string const &s)
         std::cout << "impossible" << std::endl;
         return;
     }
-    double d = strtod(s.c_str(), NULL);
+    double d = std::strtod(s.c_str(), NULL);
     if (d < 0 || d > 255)
     {
         std::cout << "impossible" << std::endl;

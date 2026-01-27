@@ -4,7 +4,7 @@ int main(int ac, char **av)
 {
     if (ac != 2)
     {
-        std::cout << "Error: Bad argument." << std::endl;
+        std::cerr << "Error: Bad argument." << std::endl;
         return (1);
     }
     RPN r;

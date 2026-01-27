@@ -113,9 +113,9 @@ void RPN::handleOp(std::string const &input)
         }
         if (op.size() > 1)
             throw std::runtime_error("Error: operator missed");
-    std::cout << op.top() << std::endl;
+        std::cout << op.top() << std::endl;
     }catch(std::exception const &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 }

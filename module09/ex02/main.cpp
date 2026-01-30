@@ -21,9 +21,10 @@ int main(int ac, char** av)
         std::cerr << "error: Need atlest 2 nomber" << std::endl;
         return 1;
     }
-    try{
+    try {
         p.handleSort(av, ac);
-    }catch(std::exception& e)
+    }
+    catch (std::exception& e)
     {
         std::cerr << e.what() << std::endl;
     }

@@ -1,0 +1,69 @@
+#include <vector>
+#include <algorithm>
+
+// Structure pour garder le lien entre le gagnant et le perdant d'une comparaison
+struct Pair {
+    int winner;
+    int loser;
+};
+
+// Fonction de recherche binaire standard (C++98)
+void binaryInsertion(std::vector<int>& mainChain, int element) {
+    std::vector<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), element);
+    mainChain.insert(it, element);
+}
+
+// Fonction récursive de Ford-Johnson
+std::vector<int> fordJohnsonRecursive(std::vector<int>& data) {
+    size_t n = data.size();
+    if (n <= 1) return data;
+
+    // 1. Création des paires et comparaison
+    std::vector<Pair> pairs;
+    std::vector<int> winners;
+    bool hasStraggler = (n % 2 != 0);
+    int straggler = hasStraggler ? data.back() : 0;
+
+    for (size_t i = 0; i < n - 1; i += 2) {
+        Pair p;
+        if (data[i] > data[i + 1]) {
+            p.winner = data[i];
+            p.loser = data[i + 1];
+        }
+        else {
+            p.winner = data[i + 1];
+            p.loser = data[i];
+        }
+        pairs.push_back(p);
+        winners.push_back(p.winner);
+    }
+
+    // 2. Appel récursif sur les gagnants pour former la chaîne principale
+    std::vector<int> mainChain = fordJohnsonRecursive(winners);
+
+    // 3. Insertion du premier perdant (celui associé au plus petit gagnant)
+    // On sait mathématiquement qu'il est le plus petit des deux premiers
+    int firstWinner = mainChain[0];
+    for (size_t i = 0; i < pairs.size(); ++i) {
+        if (pairs[i].winner == firstWinner) {
+            mainChain.insert(mainChain.begin(), pairs[i].loser);
+            break;
+        }
+    }
+
+    // 4. Insertion des autres perdants selon les nombres de Jacobsthal
+    // (Note : Pour simplifier ici, on insère les perdants restants)
+    // Dans une version complète, l'ordre d'insertion suivrait 2, 2, 6, 10, 22...
+    for (size_t i = 0; i < pairs.size(); ++i) {
+        if (pairs[i].winner != firstWinner) {
+            binaryInsertion(mainChain, pairs[i].loser);
+        }
+    }
+
+    // 5. Si on avait un élément impair, on l'insère à la fin
+    if (hasStraggler) {
+        binaryInsertion(mainChain, straggler);
+    }
+
+    return mainChain;
+}
